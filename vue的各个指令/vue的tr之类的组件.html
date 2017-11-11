@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script src="../lib/vue.js"></script>
+<body>
+    <div id="box">
+        <table>
+            <tr is="wocao"></tr>
+        </table>
+    </div>
+</body>
+<script>
+    Vue.component('wocao',{template:'<tr><td>我操你妈</td></tr>'});
+    var vm = new Vue({
+        el:'#box'
+    });
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./js/vue.js"></script>
+</head>
+
+<body>
+	<div id="box">
+		<input type="text" v-model='msg'>
+		<p>{{msg}}</p>
+		<p>{{msg2}}</p>
+	</div>
+</body>
+<script>
+	var vm = new Vue({
+		el:'#box',
+		data:{
+			msg:'你好啊',
+			msg2:0
+
+		},
+		watch:{
+			//----watch的作用是，当监听的data里的对象变化的时候，就会触发监听函数
+			//---因此监听器watch里的属性名必须与data里的属性名相同，否则就不会被触发
+			msg(aa){
+				//---监听函数的参数就是data里的同名属性msg的值
+					console.log('我是aa：'+aa);
+					this.msg2+=4;
+				//---同时，watch里也可以调用vue对象的方法
+				this.change();
+			}
+		},
+		methods:{
+			change(){
+				console.log('我是vue对象的方法change')
+			}
+		}
+	})
+</script>
+</html>

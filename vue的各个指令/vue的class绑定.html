@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	</style>
+	<script src="../lib/vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<p v-bind:style='[styleBind1,styleBind2]'>{{his}}</p>
+	</div>
+</body>
+<script>
+	var vm = new Vue({
+		el:'#box',
+		data:{
+			styleBind1:{
+				fontSize:'22px'				
+			},
+			styleBind2:{
+				backgroundColor:'red',
+				textShadow:'0 0  5px black'
+			}
+			,
+			his:'天下合久必分，久分必合'
+		}
+	})
+</script>
+</html>
