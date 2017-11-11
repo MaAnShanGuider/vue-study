@@ -70,3 +70,52 @@ Vue 提供了 transition 的封装组件，在下列情形中，可以给任何�
 
 **最重要的一点：上面的六个类在过渡完成后，全都会被移除！！！元素最终的式样仍会是我们的自定义类的设置！！！**
 这就是为什么我们要把enter-to,leave类设置成我们自定义类的属性。
+
+
+代码示例:
+```
+	
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<style>
+		*{margin:0;padding: 0;}
+		.child{
+			height:100px;width:100px;background: red;position: absolute;top:100px;
+		}
+
+		.xixi-enter-to,.xixi-leave{
+			left:0;
+		}
+		.xixi-enter,.xixi-leave-to{
+			left:-100px;
+		}
+		.xixi-enter-active,.xixi-leave-active{
+			transition:all 0.3s;
+		}
+
+
+	</style>
+	<script src="../lib/vue.js"></script>
+	<body>
+		<div id="box">
+			<button @click='isShow = !isShow'>我要变化</button>
+			<transition name="xixi">
+				<div v-if='isShow' class='child'>aaaaaaaaaa</div>
+			</transition>
+		</div>
+	</body>
+	<script>
+		var vm = new Vue({
+			el:'#box',
+			data:{
+				isShow:false
+			}
+		})
+	</script>
+	</html>
+```

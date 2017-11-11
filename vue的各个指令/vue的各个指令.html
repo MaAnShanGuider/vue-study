@@ -3,38 +3,46 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
 </head>
 <style>
-	.child{
-		background: red;height: 100px;width: 100px;left:200px;position: absolute;top:100px;
-	}
-	.xixi-enter,.xixi-leave-to{
-		left:-100px;
-	}
-	.xixi-enter-to,.xixi-leave{
-		left:200px;
-	}
-	.xixi-enter-active,.xixi-leave-active{
-		transition:left .5s;
-	}
-
-
+.component-fade-enter-active, .component-fade-leave-active {
+  transition: opacity .3s ease;
+}
+.component-fade-enter, .component-fade-leave-to
+/* .component-fade-leave-active for below version 2.1.8 */ {
+  opacity: 0;
+}
 </style>
 <script src="../lib/vue.js"></script>
 <body>
+
+
 	<div id="box">
-		<button @click='isShow = !isShow'>我要变化</button>
-		<transition name="xixi">
-			<div v-if='isShow' class='child'>aaaaaaaaaa</div>
-		</transition>
+		<button @click='view= view == "v-a"?"v-b":"v-a"'>超级变变变</button>
+			<transition name="component-fade" mode="out-in" enter-active-class='animated fadeInLeft' leave-active-class='animated fadeOutLeft'>
+				<component v-bind:is="view"></component>
+			</transition>
+
 	</div>
 </body>
 <script>
-	var vm = new Vue({
-		el:'#box',
-		data:{
-			isShow:true
-		}
+var vm = new Vue({
+	  el: '#box',
+	  data: {
+	    view: 'v-a'
+	  },
+	  methonds:{
+
+	  },
+	  components: {
+	    'v-a': {
+	      template: '<div>Component A</div>'
+	    },
+	    'v-b': {
+	      template: '<div>Component B</div>'
+	    }
+	  }
 	})
 </script>
 </html>
