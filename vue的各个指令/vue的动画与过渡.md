@@ -15,6 +15,9 @@ Vue 提供了 transition 的封装组件，在下列情形中，可以给任何�
  * 当v-if,v-show的值为从true变成false,也就是官网里称之为'离开过渡':
 		类名的触发顺序是: leave--->leave-active--->leave-to
 
+其实可以把他们想成一个环形:
+![](../img/过渡效果.png)
+
 各个类名的含义:
 
 
