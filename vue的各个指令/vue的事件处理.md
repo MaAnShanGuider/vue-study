@@ -61,4 +61,12 @@
 	<!-- 点击事件将只会触发一次 -->
 	<a v-on:click.once="doThis"></a>
 
+### v-on:是可以绑定多个函数的
 
+ eg:
+
+```
+	<div v=on:click='funC1();funC2();'></div>
+ ```
+
+就像上面的一样，和普通js代码里调用就行。

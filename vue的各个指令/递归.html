@@ -1,15 +1,161 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	
-</body>
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"> 
+    <title>Bootstrap 实例</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+
+      #box{
+          height:100px;width:100px;background: red;position: relative;left: 0;top: 0;
+      }
+      .child{
+          position: absolute;top:100px;left:0;height:200px;width: 50px;background: green;
+      }
+
+.xixihaha-enter,.xixihaha-leave-to{
+     height:0px;
+}
+.xixihaha-enter-active,.xixihaha-leave-active{
+  transition:height .8s;
+}
+.xixihaha-enter-to,.xixihaha-leave{
+  height:200px;
+}
+    </style>
+  </head>
+  <script src="../lib/vue.js"></script>
+
+  <body>
+    <div id="box">
+        <button @click='change()'>哈哈哈</button>
+        <transition name='xixihaha'>
+            <div class="child" v-if='isShow'></div>
+        </transition>
+        
+    </div>
+
+  </body>
 <script>
-	var arr = 'bob = {"wocao":"nima"}';
-	eval('('+arr+')');
-	console.log(bob);
+  var vm = new Vue({
+    el:'#box',
+    data:{
+      isShow:false,
+    },
+    methods:{
+      change(){
+        this.isShow = !this.isShow;
+      }
+    }
+  })
 </script>
 </html>
+
+
+
+ -->
+
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <title>Document</title>
+ </head>
+ <script src="../lib/vue.js"></script>
+ <style>
+
+#nav{
+  display: flex;
+  background: white;
+  width:100%;
+  height:35px;
+  justify-content:space-between;
+  list-style:none;
+  position: relative;
+
+  
+}
+li.first{
+      background:#ff851b;
+      color:white;
+    }
+li.dian{
+      color:#ff851b;
+      line-height: 30px;
+    }
+  li{  
+    color:#666;
+    width:75px;
+    height:35px;
+    font:14px/35px '';
+    text-align: center;
+  }
+.wocao{
+    position: absolute;
+    display: flex;
+    flex-wrap:wrap;
+    background: white;
+    list-style: none;
+    left:0;
+    top:35px;
+    height:70px;
+    overflow: hidden;
+  }
+.xixihaha-enter,.xixihaha-leave-to{
+     height:0px;
+}
+.xixihaha-enter-active,.xixihaha-leave-active{
+  transition:height 0.8s;
+}
+.xixihaha-enter-to,.xixihaha-leave{
+  height:70px;
+}
+</style>
+
+<style>
+  
+
+
+
+</style>
+ <body>
+     <ul id="nav">   
+   <li class='first'>首页</li>
+   <li>AC正义</li>
+   <li>娱乐</li>
+   <li>游戏</li>
+   <li class="dian" @click='change()'>···</li>
+ 
+     <transition name='xixihaha'>
+      <ul v-if='navShow' class="wocao">
+       <li>文章</li>
+       <li>二次元</li>
+       <li>动画</li>
+       <li>国产</li>
+       <li>音乐</li>
+       <li>科技</li>
+       <li>体育</li>
+       <li>合辑</li>
+     </ul>
+    </transition>
+   
+
+
+</ul>
+ </body>
+ <script>
+   new Vue({
+    el:'#nav',
+    data:{
+      navShow:false,
+    },
+    methods:{
+      change(){
+        this.navShow= !this.navShow;
+      }
+    }
+   })
+ </script>
+ </html>
