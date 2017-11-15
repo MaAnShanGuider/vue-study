@@ -41,6 +41,6 @@
 	  // fetch(req).then(res=>res.json()).then(res=>console.log(res)
 	  console.log(aa);
 	});
-	```
+```
 
 这里面的的扩展点是fetch，这里不细讲。待会儿自己查fetch的api。
