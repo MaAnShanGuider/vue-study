@@ -4,78 +4,35 @@
   <meta charset="UTF-8">
   <title>Document</title>
 </head>
-<script src='../lib/vue.js'></script>
+<script src="../lib/vue.js"></script>
+<style>
+  .flip-list-move {
+    transition: transform 10s;
+  }
+</style>
 <body>
-  <div id="box">
-     <my-input></my-input>
-     <my-result></my-result>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
+  <div id="flip-list-demo" class="demo">
+    <button v-on:click="shuffle">Shuffle</button>
+    <transition-group name="flip-list" tag="ul">
+      <li v-for="itema in item" v-bind:key="itema">
+        {{ itema }}
+      </li>
+    </transition-group>
   </div>
 </body>
 <script>
-  //-----------中心处理
-var bus = new Vue({
-  data(){
-    return {
-      myArr:['张学友','刘德华','梁朝伟']
-    }
-  },
-  created(){
-    this.$on('addMsg',this.addMsg);
-    this.$on('deleteMsg',this.deleteMsg);
-  },
-  //-----给中心定义事件
-  methods:{
-    addMsg(res){
-      this.myArr.push(res);
-      console.log('添加');
+  new Vue({
+    el: '#flip-list-demo',
+    data: {
+       item:'苟利国家生死以岂因祸福避趋之',
     },
-    deleteMsg(res){
-      this.myArr.splice(res,1);
-      console.log('删除');
+    methods: {
+      shuffle: function () {
+       this.item += this.item[Math.floor(Math.random()*this.item.length)];
+      }
     }
-
-  }
-})
-
-var myInput = Vue.extend({
-  template:'<div><input type="text" v-model="inputMsg"/><button @click="haha">添加列表</button></div>',
-  data(){
-    return {
-      inputMsg:''
-    }
-  },
-  methods:{
-    haha(){
-      bus.$emit('addMsg',this.inputMsg);
-    }
-  }
-
-})
-var myResult = Vue.extend({
-  template:`<ul><li v-for='(value,index) in aa'>{{value}} <button @click='deleteMsg(index)'>删除</button></li></ul>`,
-  data(){
-    return {
-      aa:bus.myArr
-    }
-  },
-  computed:{
-    change(){
-      console.log('bus.myArr发生变化');
-      return bus.myArr;
-    }
-  },
-  methods:{
-    deleteMsg(index){
-      bus.$emit('deleteMsg',index);
-    }
-  }
-})
-var vm = new Vue({
-  el:'#box',
-  components:{
-    'my-input':myInput,
-    'my-result':myResult
-  }
-})
+  })
 </script>
+
 </html>

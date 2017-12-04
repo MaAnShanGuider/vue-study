@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	.xixi{
+		background: red;
+	}
+	.active{
+		background: green;
+	}
+</style>
+<script src='../lib/vue.js'></script>
+
+<body>
+	<div id="box">
+		<div class='xixi'  @click='boom($event)' ref='dong'>丢</div>
+		<div class='xixi'  @click='boom($event)' ref='nan'>你</div>
+		<div class='xixi'  @click='boom($event)' ref='xi'>楼</div>
+		<div class='xixi'  @click='boom($event)' ref='bei'>某</div>
+	</div>
+</body>
+<script>
+
+	var vm = new Vue({
+		el:'#box',
+		data:{
+			parentMsg:'丢你楼某',
+			isShow:false
+		},
+		methods:{
+			boom(e){
+				console.log(this.$refs);
+				for(let i in this.$refs){
+					this.$refs[i].className = 'xixi';
+				}
+				e.target.className='active';
+			}
+		}
+	})
+</script>
+</html>

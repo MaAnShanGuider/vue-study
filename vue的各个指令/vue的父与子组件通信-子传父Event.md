@@ -21,7 +21,7 @@
 		<div id="box">
 			<div>{{fatherCount}}</div>
 			<wocao @fatherclick='fatherMethod()'></wocao>
-			<wocao @fatherClick='fatherMethod()'></wocao>
+			<wocao @fatherclick='fatherMethod()'></wocao>
 		</div>
 	</body>
 	<script>
@@ -65,7 +65,7 @@
  * 第一个点：
 
 	<wocao @fatherclick='fatherMethod()'></wocao>
-	<wocao @fatherClick='fatherMethod()'></wocao>
+	<wocao @fatherclick='fatherMethod()'></wocao>
 
  * 第二个点：
 
