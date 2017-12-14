@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+
+</style>
+<script src='../lib/vue.js'></script>
+
+<body>
+	<div id="box">
+		<button @click='fatherBoom'>change</button>
+		<Child :msg='msg'></Child>
+	</div>
+</body>
+<script>
+	let child = Vue.extend({
+		template:`<div @click='boom'>{{msg}}</div>`,
+		data(){
+			return {
+				ha:'张学友'
+			}
+		},
+		methods:{
+			boom(){
+				console.log('12345');
+				this.ha = '刘德华';
+			}
+		}
+		,props:['msg']
+	})
+	let vm = new Vue({
+		el:'#box',
+		data:{
+			msg:'haha'
+		},
+		methods:{
+			fatherBoom(){
+				this.msg = Math.random();
+			}
+		},
+		components:{
+			Child:child,
+		}
+
+	})
+</script>
+</html>

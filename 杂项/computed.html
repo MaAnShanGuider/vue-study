@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+
+</style>
+<script src='../lib/vue.js'></script>
+
+<body>
+	<div id="box">
+		<p>我是计算属性msg:{{msg}}</p>
+		<input type="text" v-model='boom'>
+	</div>
+</body>
+<script>
+let vm = new Vue({
+	el:'#box',
+	data:{
+		boom:null,
+	},
+	computed:{
+		msg(){
+			if(this.boom){
+				return this.boom;
+			}
+			else{
+				return '我是初始值';
+			}
+		}
+	}
+
+})
+</script>
+</html>

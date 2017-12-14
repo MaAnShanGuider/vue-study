@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	*{
+		margin:0;
+		padding: 0;
+	}
+
+	.boom{
+		height:200px;
+		width: 200px;
+		background: red;
+	}
+	.xixihaha{
+		background: green;
+	}
+</style>
+<script src='../lib/vue.js'></script>
+
+<body>
+	<div id="box">
+	
+		<div @click="change" class="boom" :class='{xixihaha:changeColor}'>{{msg}}</div>
+	</div>
+</body>
+<script>
+	const vm = new Vue({
+		el:'#box',
+		data:{
+			msg:'点我变色',
+			changeColor:false
+		},
+		methods:{
+			change(){
+				this.changeColor = !this.changeColor;
+			}
+		}
+
+	})
+</script>
+</html>

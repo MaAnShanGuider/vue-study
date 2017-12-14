@@ -32,6 +32,10 @@
 
 #### 设置激活的router-link式样；
 
+全局激活式样:
+
+>在路由的inex.js文件中做如下操作:
+
 ```
 	var vueRouterObj = new VueRouter({
 
@@ -58,7 +62,20 @@
 	]
 	});
 ```
+局部激活式样:
+>在组件的router-link标签添加active-class属性。
 
+```
+    <template>
+	<div id="myfooter">
+		<router-link tag='div'  :to="{name:'shop'}"  active-class="wocao"><i class='iconfont icon-shop'></i><span>商城</span></router-link>
+		<router-link tag='div'  to='/hot'  active-class="wocao"><i class='iconfont icon-text'></i><span>头条</span></router-link>
+		<router-link tag='div'  to='/club'  active-class="wocao"><i class='iconfont icon-friend'></i><span>社区</span></router-link>
+		<router-link tag='div'  to='/cart'  active-class="wocao"><i class='iconfont icon-cart'></i><span>购物车</span></router-link>
+		<router-link tag='div'  to='/mine'  active-class="wocao"><i class='iconfont icon-people'></i><span>我的</span></router-link>
+	</div>
+</template>
+```
 #### <router-link></router-link>
 
 链接用的是`<router-link></router-link>`标签，
@@ -165,3 +182,12 @@
 #### 路由的嵌套:
 
 关于这点，我们只要知道点击父组件的路由，只是会将子路由匹配到的组件渲染进父组件的`<router-view></router-view>`。
+
+#### "exact" 属 性
+
+开启router-link的严格模式
+
+<router-link :to="/" exact>home</router-link>
+
+上面这个标签如果不加exact属性，则会在vue2.leenty.com/article页面下也会被匹配到，
+这却不是我们的本意,在加了这个属性后就会正确的匹配到vue2.leenty.com下

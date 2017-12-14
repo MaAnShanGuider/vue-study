@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	*{
+		margin:0;
+		padding: 0;
+	}
+	#box{
+		width:300px;
+		margin:auto; 
+	}
+	ul{
+		overflow: hidden;
+		height:40px;
+	}
+	li{
+		width:100px;
+		list-style: none;
+		height:40px;
+		float:left;
+	}
+</style>
+<script src='../lib/vue.js'></script>
+
+<body>
+	<div id="box">
+		<ul>			
+			<li @click='boom("one")'>111111</li>
+			<li @click='boom("two")'>222222</li>
+			<li @click='boom("three")'>3333333</li>
+		</ul>
+		<div>{{msg}}</div>
+	</div>
+</body>
+<script>
+
+	var vm = new Vue({
+		el:'#box',
+		data:{
+			//-----这里你要写两个属性，一个保存了所有的数据，一个保存了当前需要用到的数据
+			msg:'haha', //--------这是当前要用到的数据
+				//--这个是保存了所有的数据
+			msgSum:{ 
+				a:'刘德华',
+				b:'梁朝伟',
+				c:'周润发'
+			}
+
+		},
+		created(){
+			this.msg = this.msgSum.a;
+		},
+		methods:{
+			boom(e){
+					console.log(e);
+					if(e=='one'){
+						this.msg = this.msgSum.a;
+					}
+					else if(e == 'two'){
+						this.msg = this.msgSum.b;
+					}
+					else {
+						this.msg = this.msgSum.c;
+					}
+			}
+		}
+	})
+</script>
+</html>

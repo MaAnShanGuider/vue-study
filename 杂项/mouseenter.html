@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	*{
+		margin:0;
+		padding: 0;
+	}
+	#box{
+		width:300px;
+		height:300px;
+		margin:auto; 
+	}
+	
+	.child{
+		width:100px;
+		height:100px;
+		background: red;
+	}
+</style>
+<script src='../lib/vue.js'></script>
+
+<body>
+	<div id="box">
+		<div @mouseenter='boom' class='child' ></div>
+	</div>
+</body>
+<script>
+
+	var vm = new Vue({
+		el:'#box',
+		data:{
+		
+
+		},
+		created(){
+			
+		},
+		methods:{
+			boom(e){
+				alert('aaaa');
+			}
+		}
+	})
+</script>
+</html>
