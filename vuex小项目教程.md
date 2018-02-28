@@ -6,6 +6,9 @@
 
 话不多说，直接撸代码。
 
+项目代码文件: [点这里](https://github.com/MaAnShanGuider/vue-little-demo/archive/master.zip);
+解压后，在当前目录下的文件夹下，输入`npm install`即可。
+
 ## 安装
 安装vue，以及vue-cli,
 打开cmd，命令行窗口，输入以下命令
